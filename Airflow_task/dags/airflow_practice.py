@@ -91,7 +91,7 @@ with DAG(dag_id="demo", start_date=datetime(2022, 1, 4), schedule="@once") as da
     
 
 
-with DAG(dag_id="psql", start_date=datetime(2022, 1, 4), schedule_interval='*/10 * * * *',catchup=False) as psqldag:
+with DAG(dag_id="psql", start_date=datetime(2022, 1, 4), schedule_interval='*/1 * * * *',catchup=False) as psqldag:
     
             insert_order= PostgresOperator(
                 task_id="insert_order",
@@ -114,11 +114,33 @@ with DAG(dag_id="psql", start_date=datetime(2022, 1, 4), schedule_interval='*/10
                 dag= psqldag
             )
             
+            insert_purchaseDetails = PostgresOperator(
+                task_id="insert_purchasedetails",
+                database="airflow_task",
+                postgres_conn_id="postgres",
+                sql="""INSERT INTO purchase_details (customer_id, total_orders, total_returns)
+                            SELECT COALESCE(o.customer_id, r.customer_id) AS customer_id,
+                                COALESCE(o.order_count, 0) AS orders,
+                                COALESCE(r.return_count, 0) AS returns
+                            FROM
+                                (SELECT customer_id, COUNT(*) AS order_count
+                                FROM orders
+                                GROUP BY customer_id) AS o
+                            LEFT JOIN
+                                (SELECT customer_id, COUNT(*) AS return_count
+                                FROM Product_returns
+                                GROUP BY customer_id) AS r
+                            ON o.customer_id = r.customer_id
+                            ORDER BY COALESCE(o.customer_id, r.customer_id);
+                    """,
+                dag= psqldag
+            )
             
             
             
             
-            insert_order >> insert_productreturn 
+            
+            insert_order >> insert_productreturn >> insert_purchaseDetails
     
 
     

@@ -91,7 +91,7 @@ with DAG(dag_id="demo", start_date=datetime(2022, 1, 4), schedule="@once") as da
     
 
 
-with DAG(dag_id="psql", start_date=datetime(2022, 1, 4), schedule_interval='*/1 * * * *',catchup=False) as psqldag:
+with DAG(dag_id="psql", start_date=datetime(2022, 1, 4), schedule_interval='*/2 * * * *',catchup=False) as psqldag:
     
             insert_order= PostgresOperator(
                 task_id="insert_order",

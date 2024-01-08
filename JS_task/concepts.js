@@ -26,7 +26,43 @@ function basic_concepts () {
         console.log(name.substring(2, name.length))
         console.log(name.endsWith('a'))
 
+    // Arrays and array methods
+
+      ListOfNames = ["vijay" , "ajay" , "mani" , "mohan" ,"vijay", "kishor"]
+      ListOfNames.shift() // {unshift => add elements at first }     insert first of the array
+      ListOfNames.push("manoj") //{pop => remove the last element}  insert the element to the last index
+      console.log(ListOfNames)            
+      console.log(ListOfNames.at(3))          // access specific index
+      document.getElementById("demo").innerHTML = ListOfNames.join(" $");
+      console.log(ListOfNames.lastIndexOf("vijay") + 1)
+      console.log(ListOfNames.includes("manoj"))
+      //   ListOfNames.forEach(element => {
+      //     console.log(element)                // itterate each values of array using foreach
+      //   });
+
+    //   Looping conditions
+
+     listofnums = []
+     for (i = 1; i <= 5; i++) {    // for loop 
+        listofnums[i-1] = i*2;  
+     }
+     console.log(listofnums)
+     details = {  name : "vijay",  age : 18,  year :2001 }
+     for (values in details){         // for in for iterate through objects
+        console.log(details[values])
+     }
+         var i = 0
+         while(i < listofnums.length){        // while loop
+          console.log(listofnums[i++]) 
+        }
+
+        condition = 10 
+
+        do {
+            console.log("print")          // do while
+        }while(condition > 30)
 }
+
 
 
 

@@ -126,7 +126,7 @@ with DAG(dag_id="psql", start_date=datetime(2022, 1, 4), schedule_interval='*/2 
                                 (SELECT customer_id, COUNT(*) AS order_count
                                 FROM orders
                                 GROUP BY customer_id) AS o
-                            LEFT JOIN
+                            JOIN
                                 (SELECT customer_id, COUNT(*) AS return_count
                                 FROM Product_returns
                                 GROUP BY customer_id) AS r

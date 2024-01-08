@@ -112,3 +112,60 @@ console.log(greet.welcome());
 
 
 
+
+
+function asynchronousMethod() {    
+    let promise1 = new Promise((resolve , reject) =>{
+        let result = 2 + 1
+        if (result == 4){
+            resolve("Correct")
+        }
+        else{
+            reject("Not correct")
+        }     
+    })
+    promise1.then((message)=>{
+        console.log("Then message " + message)
+    }).catch((message)=>{
+        console.log("In the catch " +message)
+    })
+}
+
+function setTimeoutPromise(delay) {
+    return new Promise((resolve, reject) => {
+      if (delay < 0)
+         return reject("Delay must be greater than 0")
+  
+      setTimeout(() => {
+        resolve(`You waited ${delay} milliseconds`)
+      }, delay)
+    })
+  }
+// setTimeoutPromise(250).then((msg1)=>{
+//     console.log("first run")
+//     console.log(msg1)
+//     return setTimeoutPromise(500)
+// }).then((msg2)=>{
+//     console.log("Second run")
+//     console.log(msg2)
+// })
+
+async function doWork() {
+    try{
+        console.log("first work")
+        const firstwork = await setTimeoutPromise(250)
+        console.log(firstwork)
+        console.log("second work")
+        const secondword = await setTimeoutPromise(500)
+        console.log(secondword)
+    }catch(err)
+    {
+        console.log(err)
+    }
+}
+
+
+asynchronousMethod()  
+doWork()
+
+

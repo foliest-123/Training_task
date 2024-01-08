@@ -83,19 +83,32 @@ basic_concepts()
 
 
   // classes and functions
-class find_person_age{
-    constructor(name , year){
-        this.name = name
-        this.year = year
+class find_person_age {
+    constructor(name, year) {
+        this.name = name;
+        this.year = year;
     }
-    cal_age(){
-        const current_date = new Date()
-        return current_date.getFullYear() - this.year
+
+    cal_age() {
+        const current_date = new Date();
+        return current_date.getFullYear() - this.year;
     }
 }
+var findpersonage = new find_person_age("vijay", 2001);
 
-var findpersonage = new find_person_age("vijay" , 2001) 
-console.log("Your name is " + findpersonage.name ,"Your current age is " , findpersonage.cal_age())
+class greetings extends find_person_age {
+    constructor(name, year) {
+        super(name, year);
+    }
+
+    welcome() {
+        return "Thank you " + this.name ; // Added space after this.name
+    }
+}
+console.log("Hiii" , findpersonage.name , "your age is",findpersonage.cal_age())
+var greet = new greetings("vijay", 2001);
+console.log(greet.welcome());
+
 
 
 

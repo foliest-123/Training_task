@@ -61,6 +61,26 @@ function basic_concepts () {
         do {
             console.log("print")          // do while
         }while(condition > 30)
+
+
+    // Mapping
+    let student_marks = new Map([
+        ["stu1" , 70],
+        ["stu2" , 65],
+        ["stu3" , 88],
+        ["stu4" , 43]
+    ])
+    console.log(student_marks)
+    // student_marks.forEach((value , key) => { //traverse map using foreach()
+    //     console.log(key + " " +  value)
+    // });
+    console.log(student_marks.size)
+    student_marks.delete("stu2")
+    console.log(student_marks)
+
+    //
+
+
 }
 
 

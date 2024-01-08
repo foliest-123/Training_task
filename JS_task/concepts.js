@@ -29,8 +29,8 @@ function basic_concepts () {
     // Arrays and array methods
 
       ListOfNames = ["vijay" , "ajay" , "mani" , "mohan" ,"vijay", "kishor"]
-      ListOfNames.shift() // {unshift => add elements at first }     insert first of the array
-      ListOfNames.push("manoj") //{pop => remove the last element}  insert the element to the last index
+      ListOfNames.shift()               // {unshift => add elements at first }     insert first of the array
+      ListOfNames.push("manoj")         //{pop => remove the last element}  insert the element to the last index
       console.log(ListOfNames)            
       console.log(ListOfNames.at(3))          // access specific index
       document.getElementById("demo").innerHTML = ListOfNames.join(" $");
@@ -78,14 +78,24 @@ function basic_concepts () {
     student_marks.delete("stu2")
     console.log(student_marks)
 
-    //
+}
+basic_concepts()
 
 
+  // classes and functions
+class find_person_age{
+    constructor(name , year){
+        this.name = name
+        this.year = year
+    }
+    cal_age(){
+        const current_date = new Date()
+        return current_date.getFullYear() - this.year
+    }
 }
 
+var findpersonage = new find_person_age("vijay" , 2001) 
+console.log("Your name is " + findpersonage.name ,"Your current age is " , findpersonage.cal_age())
 
 
 
-
-
-basic_concepts()

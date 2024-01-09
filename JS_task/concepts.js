@@ -167,17 +167,15 @@ async function doWork() {
 
 
 asynchronousMethod()  
-
-
 const userAction = async () => {
-  try {
-    const pre_fun = await doWork();
+    try {
+      await doWork();
     const response = await fetch('https://dummy.restapiexample.com/api/v1/employee/3');
-      const data = await response.json();
-      console.log(data); // Logging the response data
-       }catch(err){
+    const data = await response.json()
+    console.log(data.message)
+    }catch(err){
        console.log(err)
-       }
-};
+    }
+}
 
 userAction();

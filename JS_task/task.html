@@ -7,49 +7,53 @@
     <link rel="stylesheet" href="task.css">
     <title>Task</title>
 </head>
+
 <body>
     <h3>Task</h3>
-<div class="tasks">
-    <div class="task-2">
-        <h5>Task - 2</h5>
-        <input type="text" placeholder="Enter num1" id="num1">
-        <input type="text" placeholder="Enter num2" id="num2">
-        <button onclick="display_number()">Submit</button>
-        <h3 id="result"></h3>
-        <input type="text" placeholder="Enter some text .." class="text">  
-        <button onclick="display_string()">Click</button>
-        <p id="string_result"></p>
+    <div class="tasks">
+        <div class="task-2">
+            <h5>Task - 2</h5>
+            <input type="text" placeholder="Enter num1" id="num1">
+            <input type="text" placeholder="Enter num2" id="num2">
+            <button onclick="display_number()">Submit</button>
+            <h3 id="result"></h3>
+            <input type="text" placeholder="Enter some text .." class="text">
+            <button onclick="display_string()">Click</button>
+            <p id="string_result"></p>
+        </div>
+        <div class="task-3">
+            <h5>Task-3</h5>
+            <p id="even_index">Even index: </p>
+            <p id="addItems">added items: </p>
+            <p id="sort">sorted items: </p>
+            <p id="maparray">using Map: </p>
+            <p id="reducearray">using reduce: </p>
+            <button onclick="separate_oddEven()">List task</button>
+            <button onclick="mapping_values()">Map task</button>
+
+        </div>
+
+        <div class="task-4">
+            <h5>Task-4</h5>
+            <input type="text" id="name" placeholder="Enter name">
+            <input type="text" id="age" placeholder="Enter age">
+            <input type="text" id="country" placeholder="Enter country">
+            <button onclick="getDictValues()">Submit</button>
+        </div>
+
+
+        <div class="task-5">
+            <h5>Task-5</h5>
+            <p id="add"></p>
+            <button onclick="new calulator(12,34).addition()">Add</button>
+            <p id="sub"></p>
+            <button onclick="new calulator(12,34).subtraction()">sub</button>
+            <p id="mul"></p>
+            <button onclick="new calulator(12,34).multiplication()">mul</button>
+        </div>
+
     </div>
-    <div class="task-3">
-        <h5>Task-3</h5>
-        <p id="even_index">Even index: </p>
-        <p id="addItems">added items: </p>
-        <p id="sort">sorted items: </p>
-        <button onclick="separate_oddEven()">Total-list</button>
-    </div>
-
-    <div class="task-4">
-        <h5>Task-4</h5>
-         <input type="text" id="name" placeholder="Enter name">
-         <input type="text" id="age" placeholder="Enter age">
-         <input type="text" id="country" placeholder="Enter country">
-
-         <button onclick="getDictValues()">Submit</button>
-    </div>
-
-
-    <div class="task-5">
-        <h5>Task-5</h5>
-
-        <p id="add"></p>
-         <button onclick="new calulator(12,34).addition()">Add</button>     
-        <p id="sub"></p>
-        <button onclick="new calulator(12,34).subtraction()">sub</button>   
-        <p id="mul"></p>
-         <button onclick="new calulator(12,34).multiplication()">mul</button>   
-    </div>
-
- </div>
 </body>
-<script src="task.js"></script> 
+<script src="task.js"></script>
+
 </html>

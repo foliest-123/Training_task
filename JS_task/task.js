@@ -52,55 +52,64 @@ function sumofArray(total, num) {
     return total + num;
 }
 
-mapping_values = () =>{
+mapping_values = () => {
 
-    numList = [10,25,12,30,271,2625,2251,26251,2817 ]
-
-    numList.sort(function (a,b) {
+    numList = [10, 25, 12, 30, 271, 2625, 2251, 26251, 2817]
+    numList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    usingReduce = []
+    numList.sort(function (a, b) {
         return a - b;
     });
+
     console.log(numList)
 
-    mapped_values =  numList.map(function(element){
+    usingMap = numList.map(function (element) {
         return element + 1
     })
-    sumofArray = numList.reduce(sumofArray)
-    console.log(sumofArray)
+    numList.reduce((first , second)=>{
+        console.log(first ," ", second)
+        if (first != null && second != null){
+        usingReduce.push(first + 1)
+        usingReduce.push(second + 1)
+        }
+        else{
+        usingReduce.push(second + 1)
+        }
+    })
+    document.getElementById("maparray").innerHTML += usingMap
+    document.getElementById("reducearray").innerHTML += usingReduce
 }
 
-mapping_values()
 
 listOfDicts = () => {
-    dicts = [
-        {
-            "name" : "vijay",
-            "age" : 20,
-            "selected" : true
+    dicts = [{
+            "name": "vijay",
+            "age": 20,
+            "selected": true
         },
         {
-            "name" : "ajay",
-            "age" : 25,
-            "selected" : false
+            "name": "ajay",
+            "age": 25,
+            "selected": false
         },
         {
-            "name" : "mani",
-            "age" : 40,
-            "selected" : false
+            "name": "mani",
+            "age": 40,
+            "selected": false
         }
     ]
 
-  for(let i=0; i < dicts.length ; i++){
-    let object = dicts[i]
-    // for (const [key, value] of Object.entries(object)) {
-    //     console.log(key,":" , value)
-    // }
-        if(object.selected == true)
-        {
+    for (let i = 0; i < dicts.length; i++) {
+        let object = dicts[i]
+        // for (const [key, value] of Object.entries(object)) {
+        //     console.log(key,":" , value)
+        // }
+        if (object.selected == true) {
             for (const [key, value] of Object.entries(object)) {
-                console.log(key,":" , value)
+                console.log(key, ":", value)
             }
         }
-  }
+    }
 }
 
 detailsList = []

@@ -1,0 +1,23 @@
+body{
+background-color: aliceblue;
+box-sizing: border-box;
+}
+.tasks{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-around;
+}
+
+.task-2,
+.task-3,
+.task-4,
+.task-5{
+    border: 2px solid red;
+    padding: 20px 20px;
+    background-color: whitesmoke;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

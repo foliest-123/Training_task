@@ -101,12 +101,13 @@ listOfDicts = () => {
 
     for (let i = 0; i < dicts.length; i++) {
         let object = dicts[i]
-        // for (const [key, value] of Object.entries(object)) {
-        //     console.log(key,":" , value)
-        // }
+        for (const [key, value] of Object.entries(object)) {
+            document.getElementById("showDict").innerHTML += "<li>" + key + ": " + value + "</li>";
+        }
         if (object.selected == true) {
             for (const [key, value] of Object.entries(object)) {
-                console.log(key, ":", value)
+                document.getElementById("selectedPerson").innerHTML += "<li>" + key + ": " + value + "</li>";
+
             }
         }
     }

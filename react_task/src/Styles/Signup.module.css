@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.signup{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.signup form{
+    display: flex;
+    width: 30%;
+    /* padding: 20px 10px; */
+    border-radius: 10%;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+.signup form input{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 10px; 
+    border: 1px solid black;
+
+}
+.inputField:focus {
+    border-color: #007bff; /* Set your desired border color when focused */
+}
+
+.signup form .button{
+    display: flex;
+}
+.signup form .button button[type ="submit"]{
+    cursor: pointer;
+    display: flex;
+    padding: 10px 28px;
+    border-radius: 20px;
+    background-color: #0021a5;
+    color: white;
+}

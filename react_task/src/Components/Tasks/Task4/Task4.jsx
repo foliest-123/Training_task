@@ -59,11 +59,11 @@ class Task4 extends React.Component {
         <h1>Loading</h1>
       )}
     </div>
-    <input type="checkbox" id="india" name="india" onClick={(e) => this.getcity(e)}/>
+    <input type="checkbox" id="india" name="india" onChange={(e) => this.getcity(e)}/>
         <label htmlFor="india"> india</label>
-        <input type="checkbox" id="london" name="london" onClick={(e) => this.getcity(e)}/>
+        <input type="checkbox" id="london" name="london" onChange={(e) => this.getcity(e)}/>
         <label htmlFor="london">  london</label>
-        <input type="checkbox" id="japan" name="japan" onClick={(e) => this.getcity(e)}/>
+        <input type="checkbox" id="japan" name="japan" onChange={(e) => this.getcity(e)}/>
         <label htmlFor="japan">  japan</label>
         <button onClick={() => this.apicall()}>Submit</button>
       </div>

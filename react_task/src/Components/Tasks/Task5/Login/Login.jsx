@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-import { useNavigate , Link } from 'react-router-dom';
-import '../../../../Styles/Login.css'
-import PrivateRoute from "../../PrivateRoute";
+import React, { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import "../../../../Styles/Login.css";
 
-
-const Task5 = () => {
+const Task5 = ({onLogin}) => {
   const [data, setData] = useState({});
-  let [isAuthenticated , setisAuthenticated] = useState(false)
   const [result, setResult] = useState(null);
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch("https://app.qualdo.ai/iam/login", {
@@ -21,10 +19,15 @@ const Task5 = () => {
     });
     const result = await response.json();
     console.log(result);
+    let value ="bye"
     setResult(result);
-    if(result.code === 200){
-      navigate('/');
-      setisAuthenticated(true)
+    if (result.code === 200) {
+      navigate("/");
+      value = "hii"
+      onLogin(result ,value);
+
+    } else {
+      onLogin(null);
     }
   };
 
@@ -32,7 +35,13 @@ const Task5 = () => {
     <div className="container">
       <div className="login">
         <h1>Login</h1>
-        {result ? <h3 style={{color:'red' , textTransform:'uppercase'}}>{result.message}</h3>:<></>}
+        {result ? (
+          <h3 style={{ color: "red", textTransform: "uppercase" }}>
+            {result.message}
+          </h3>
+        ) : (
+          <></>
+        )}
         <form>
           <label htmlFor="email">
             Email Address <span>*</span>
@@ -66,13 +75,13 @@ const Task5 = () => {
           </div>
 
           <div className="buttons">
-          <Link to="/Signup">
-            <button type="button">Sign Up</button>
-          </Link>
+            <Link to="/Signup">
+              <button type="button">Sign Up</button>
+            </Link>
             <button type="submit" onClick={handleSubmit}>
               Login
             </button>
-            {<PrivateRoute auth={isAuthenticated}/>}
+            {/* {<PrivateRoute auth={isAuthenticated}/>} */}
           </div>
         </form>
       </div>

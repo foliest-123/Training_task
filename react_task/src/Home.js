@@ -4,6 +4,8 @@ import App from './App';
 import Login from './Components/Tasks/Task5/Login/Login';
 import Signup from './Components/Tasks/Task5/signup/Sign-up';
 import Task6 from './Components/Tasks/Task6/Task6';
+import './Home.css'
+
 
 const Home = () => {
   const [loggedin, setloggedin] = useState(false);
@@ -15,13 +17,13 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className='home'>
       {loggedin ? (
         <App />
       ) : (
         <ul>
           <li><Link to="/Login">Login</Link></li>
-          <li><Link to="/Signup">Signup</Link></li>
+          <li><Link to="/Signup">Sign-up</Link></li>
           <li><Link to="/Task6">cl-Login</Link></li>
         </ul>
       )}

@@ -1,5 +1,5 @@
 import React , {useEffect} from "react";
-
+import '../../../Styles/Task4.scss'
 
 class Task4 extends React.Component {
   constructor(props) {
@@ -43,30 +43,51 @@ class Task4 extends React.Component {
   
   render() {
     return (
-        <div>
-         <div>
-      {Object.keys(this.state.data).length > 0 ? (
-        Object.entries(this.state.data).map(([key, value]) => (
-          <div key={key}>
-            <h3>City :{value.name}</h3>
-            <p>Country : {value.country}</p>
-            <p>Local_time : {value.localtime}</p>
-            <p>Laitude : {value.lat}</p>
-            <p>Longitude : {value.lon}</p>
-          </div>
-        ))
-      ) : (
-        <h1>Loading</h1>
-      )}
-    </div>
-    <input type="checkbox" id="india" name="india" onChange={(e) => this.getcity(e)}/>
+      <div className="task4">
+        <div className="values">
+              {Object.keys(this.state.data).length > 0 ? (
+                Object.entries(this.state.data).map(([key, value]) => (
+                  <div key={key}>
+                    <h3>City: {value.name}</h3>
+                    <p>Country: {value.country}</p>
+                    <p>Local_time: {value.localtime}</p>
+                    <p>Laitude: {value.lat}</p>
+                    <p>Longitude: {value.lon}</p>
+                  </div>
+                ))
+              ) : (
+                <h1>Loading</h1>
+              )}
+        </div>
+
+<div>
+
+
+
+        <input
+          type="checkbox"
+          id="india"
+          name="india"
+          onChange={(e) => this.getcity(e)}
+        />
         <label htmlFor="india"> india</label>
-        <input type="checkbox" id="london" name="london" onChange={(e) => this.getcity(e)}/>
-        <label htmlFor="london">  london</label>
-        <input type="checkbox" id="japan" name="japan" onChange={(e) => this.getcity(e)}/>
-        <label htmlFor="japan">  japan</label>
+        <input
+          type="checkbox"
+          id="london"
+          name="london"
+          onChange={(e) => this.getcity(e)}
+          />
+        <label htmlFor="london"> london</label>
+        <input
+          type="checkbox"
+          id="japan"
+          name="japan"
+          onChange={(e) => this.getcity(e)}
+          />
+        <label htmlFor="japan"> japan</label>
         <button onClick={() => this.apicall()}>Submit</button>
       </div>
+          </div>
     );
   }
 }

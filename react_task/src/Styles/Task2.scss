@@ -1,0 +1,23 @@
+.add{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    input{
+        padding: .5rem;
+        border-radius: .5rem;
+    }
+    button{
+        padding: .3rem .8rem;
+        background-color: rebeccapurple;
+        border-radius: .5rem;
+        color: white;
+        border: none;
+    }
+    button:hover{
+        cursor: pointer;
+        background-color: rgb(59, 5, 59);
+        
+    }
+}

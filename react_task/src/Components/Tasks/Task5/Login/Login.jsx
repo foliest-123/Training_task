@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "../../../../Styles/Login.css";
+import "../../../../Styles/Login.scss";
 
 const Task5 = ({onLogin}) => {
   const [data, setData] = useState({});
@@ -85,7 +85,7 @@ const Task5 = ({onLogin}) => {
           </div>
         </form>
       </div>
-    </div>
+      </div>
   );
 };
 

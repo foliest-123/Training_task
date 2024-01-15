@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+  
+    .login {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 40%;
+      padding: 25px 10px;
+      border-radius: 20px;
+  
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+  
+        span {
+          color: red;
+        }
+  
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        input[type="number"] {
+          padding: 13px 0;
+          background-color: rgb(245, 253, 132);
+          border-radius: 20px;
+          color: black;
+          border: 2px solid skyblue;
+        }
+      }
+    }
+  
+    .remember-forgot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .buttons {
+      display: flex;
+      align-items: center;
+      width: 100%;
+  
+      button[type="submit"],
+      button[type="button"] {
+        cursor: pointer;
+        display: flex;
+        padding: 10px 28px;
+        margin-right: 50px;
+        border-radius: 20px;
+      }
+  
+      button[type="submit"] {
+        background-color: rgb(6, 6, 181);
+        color: white;
+        border: 2px solid rgb(6, 6, 181);
+      }
+  
+      button[type="button"] {
+        background-color: white;
+        border: 2px solid rgb(6, 6, 181);
+        color: rgb(6, 6, 181);
+      }
+  
+      button[type="button"]:hover {
+        background-color: rgb(6, 6, 181);
+        color: white;
+      }
+    }
+  }
+  

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { createBrowserHistory } from "history";
 
-
 class Task6 extends Component {
   constructor(props) {
     super(props);

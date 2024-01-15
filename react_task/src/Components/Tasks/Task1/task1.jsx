@@ -1,33 +1,33 @@
 import React from 'react'
-import './task1.css'
+import '../../../Styles/task1.scss'
 
 class Task1 extends React.Component {
 
     render() {
       return (
-        <div className="container">
+        <div className="task-1">
           <div className="table">
-          <table>
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-        </tr>
-      </tbody>
-    </table>
+                    <table>
+                <thead>
+                  <tr>
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                  </tr>
+                  <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco Chang</td>
+                    <td>Mexico</td>
+                  </tr>
+                </tbody>
+              </table>
           </div>
           <div className="form">
             <h2>Login</h2>

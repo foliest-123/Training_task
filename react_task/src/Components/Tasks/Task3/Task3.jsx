@@ -1,10 +1,11 @@
 import React from 'react'
 import jsondata from './data.json'
+import '../../../Styles/Task3.scss'
 
 class Task3 extends React.Component {
   render() {
     return (
-      <div>
+      <div className='task3'>
         {jsondata ? (
           <table>
             <thead>
@@ -16,8 +17,8 @@ class Task3 extends React.Component {
             </thead>
 
             {jsondata.map((items, index) => (
-              <tbody>
-                <tr key={index}>
+              <tbody key={index}>
+                <tr >
                   <td>{items.name}</td>
                   <td>{items.department}</td>
                   <td>{items.dob}</td>

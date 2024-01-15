@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../../../Styles/Task2.scss'
 
 class Task2 extends React.Component{
     constructor(props) {
@@ -33,8 +33,8 @@ class Task2 extends React.Component{
 
     render () {
         return(
-            <div>
-                <h1>Adding two numbers</h1>
+            <div className='add'>
+                <h1>Adding Two Numbers</h1>
                 <input type="text" onChange={this.getFirstnum}/>
                 <input type="text" onChange={this.getSecondnum}/>
                 <button onClick={this.showresult}>ADD</button>

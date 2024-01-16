@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import App from './App';
 import Login from './Components/Tasks/Task5/Login/Login';
 import Signup from './Components/Tasks/Task5/signup/Sign-up';

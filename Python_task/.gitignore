@@ -1,3 +1,4 @@
+.csv
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -68,7 +69,6 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-*.csv
 
 # Sphinx documentation
 docs/_build/

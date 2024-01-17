@@ -34,7 +34,7 @@ def extend_and_addSubList():
 # {'Ten': 10, 'Twenty': 20, 'Thirty': 30}
 
 def list_to_dict():
-    keys = ['Ten', 'Twenty', 'Thirty']
+    keys = ['Ten', 'Twenty ', 'Thirty']
     values = [10, 20, 30]
 
     res = dict(map(lambda i,j : (i,j) , keys,values))

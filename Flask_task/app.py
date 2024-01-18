@@ -123,11 +123,13 @@ def add_employee():
 @app.route('/update_employee', methods=["GET"])
 @handle_exceptions
 def update_employee():
-        form_data = request.get_json() 
-        employee_id  = form_data['id']
+        update_value = request.get_json() 
+        employee_id  = update_value['id']
         print(employee_id)
-        employee = Employee.query.get(employee_id)
-        
+        employee = Employee.query.get(employee_id)   
+        employee.first_name = "vijco"
+        if not employee:
+           return jsonify({'message': 'Employee not found'}), 404
         employee_values= {
                'id': employee.employee_id,
                 'first_name': employee.first_name,
@@ -141,11 +143,21 @@ def update_employee():
             return jsonify({'message': 'Employee not found'}), 404
         else:
             for key, value in employee_values.items():
-              if key not in form_data:
-                 form_data[key] = value
-            db.session.commit()    
-            print(form_data)  
-        return "Data update successfully"
+              if key not in update_value:
+                 update_value[key] = value
+
+        try:
+        # Commit changes to the database
+            db.session.commit()
+            print(update_value)
+            return "Data update successful"
+        except Exception as e:
+            # Handle exceptions that might occur during commit
+            db.session.rollback()  # Rollback changes in case of an error
+            print(f"Error committing changes: {str(e)}")
+            return jsonify({'message': 'Error committing changes'}), 500
+        finally:
+            db.session.close() 
 
 
 @app.route('/delete_employee', methods=["GET"])

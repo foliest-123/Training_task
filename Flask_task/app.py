@@ -127,7 +127,7 @@ def update_employee():
         employee_id  = update_value['id']
         print(employee_id)
         employee = Employee.query.get(employee_id)   
-        employee.first_name = "vijco"
+        employee.first_name = "vijay"
         if not employee:
            return jsonify({'message': 'Employee not found'}), 404
         employee_values= {
@@ -148,6 +148,9 @@ def update_employee():
 
         try:
         # Commit changes to the database
+            employee.update().\
+            values(update_value).\
+            where(update_value.id == employee.id)
             db.session.commit()
             print(update_value)
             return "Data update successful"

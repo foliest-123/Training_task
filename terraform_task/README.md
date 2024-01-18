@@ -18,4 +18,21 @@ backend in terraform:
     
     * backend used to manage the state file remotely and locally.
     * without backend have to manage the state file manually, which can be error-prone and lead to     inconsistencies. 
-    
+
+depends_on :
+    which used for when one resource creation is depends on the other one the resource creation when that time depends_on module will help.
+
+state file:
+    It is created after running terraform apply . The actual content of this file is a JSON formatted mapping of the resources defined in the configuration and those that exist in your infrastructure
+
+get output:
+    using output block we can print the output in the value varibale.
+            ex:{
+                data "google_storage_bucket" "default" {
+                name = "spark_data1"
+               }
+                output "bucket_metadata" {
+                value = "bucket_name: ${data.google_storage_bucket.default.name}"
+                description = "The private IP address of the main server instance."
+              }  
+            }

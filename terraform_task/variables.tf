@@ -1,5 +1,6 @@
 variable "project_id" {
-  description = "vijay-410011"
+  default     = "vijay-410011"
+  description = "project id"
   type        = string
 }
 
@@ -9,7 +10,7 @@ variable "bucket_name" {
 }
 
 variable "region" {
-  description = "us-central1"
-  type        = string
   default     = "us-central1"
+  description = "location of the bucket"
+  type        = string
 }

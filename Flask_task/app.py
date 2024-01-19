@@ -18,10 +18,10 @@ def index():
 conn = psycopg2.connect(database="sample_test",  
                         user="postgres", 
                     password="1234",  
-                    host="localhost", port="5432") 
-
+                    host="host.docker.internal", port="5432") 
+ #host.docker.internal
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{username}:{password}@localhost/{db}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional but recommended for performance
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
 db = SQLAlchemy(app)
 
@@ -125,42 +125,33 @@ def add_employee():
 def update_employee():
         update_value = request.get_json() 
         employee_id  = update_value['id']
-        print(employee_id)
-        employee = Employee.query.get(employee_id)   
-        employee.first_name = "vijay"
+        employee = Employee.query.get(employee_id)  
         if not employee:
            return jsonify({'message': 'Employee not found'}), 404
-        employee_values= {
-               'id': employee.employee_id,
-                'first_name': employee.first_name,
-                'last_name': employee.last_name,
-                'email': employee.email,
-                'department': employee.department,
-                'salary': float(employee.salary),
-                'hire_date': str(employee.hire_date)
-        }
+        # employee_values= {
+        #        'id': employee.employee_id,
+        #         'first_name': employee.first_name,
+        #         'last_name': employee.last_name,
+        #         'email': employee.email,
+        #         'department': employee.department,
+        #         'salary': float(employee.salary),
+        #         'hire_date': str(employee.hire_date)
+        # }
         if not employee:
             return jsonify({'message': 'Employee not found'}), 404
         else:
-            for key, value in employee_values.items():
-              if key not in update_value:
-                 update_value[key] = value
-
+            for key, value in employee.__dict__.items():
+                if key in update_value.items():
+                    print(key)
         try:
         # Commit changes to the database
-            employee.update().\
-            values(update_value).\
-            where(update_value.id == employee.id)
             db.session.commit()
-            print(update_value)
-            return "Data update successful"
+            return "Data update success"
         except Exception as e:
             # Handle exceptions that might occur during commit
             db.session.rollback()  # Rollback changes in case of an error
             print(f"Error committing changes: {str(e)}")
             return jsonify({'message': 'Error committing changes'}), 500
-        finally:
-            db.session.close() 
 
 
 @app.route('/delete_employee', methods=["GET"])
@@ -180,6 +171,32 @@ def delete_employee():
         return "Data deleted successfully"
 
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
+
+
+
+
+
+
+
+# # Importing flask module in the project is mandatory
+# # An object of Flask class is our WSGI application.
+# from flask import Flask
+
+# # Flask constructor takes the name of 
+# # current module (__name__) as argument.
+# app = Flask(__name__)
+
+# # The route() function of the Flask class is a decorator, 
+# # which tells the application which URL should call 
+# # the associated function.
+# @app.route('/')
+# # ‘/’ URL is bound with hello_world() function.
+# def hello_world():
+# 	return 'Hello World'
+
+# # main driver function
+# if __name__ == "__main__":
+#     app.run()
 
